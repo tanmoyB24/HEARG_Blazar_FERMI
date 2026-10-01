@@ -1,0 +1,21 @@
+# Fermi Science Tools + fermipy from conda-forge/fermi channels. If you already use the HEARG docker image,
+# you only need to `pip install` the extras (pandas scipy matplotlib pyyaml astroquery nbformat).
+name: blazar-fermi
+channels:
+  - conda-forge
+  - fermi
+dependencies:
+  - python=3.9
+  - fermitools
+  - fermipy
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - pyyaml
+  - astropy
+  - jupyter
+  - pip
+  - pip:
+      - astroquery
+      - nbformat

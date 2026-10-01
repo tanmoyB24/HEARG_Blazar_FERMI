@@ -1,0 +1,35 @@
+# ---------------------------------------------------------------------------
+# Project settings. Edit this file, not the scripts.
+# ---------------------------------------------------------------------------
+paths:
+  catalog: /path/to/gll_psc_v27.fit     # same 4FGL file you used in Tutorial 2 (use ONE version for the whole project)
+  data_dir: data                        # data/<source_slug>/ holds *_PH*.fits and *_SC*.fits
+  results_dir: results
+  sources: sources.csv
+
+time:                                   # UTC dates; converted to Fermi MET automatically
+  start: "2008-08-04"
+  end:   "2018-08-04"                   # match the time span of your catalog release (v27 ~ 10 yr)
+
+energy: {emin: 100, emax: 300000}       # MeV
+roi:    {roiwidth: 12.0, src_roiwidth: 16.0, binsz: 0.1, binsperdec: 8}
+selection: {zmax: 90, evclass: 128, evtype: 3}   # SOURCE class, front+back
+irfs: P8R3_SOURCE_V3
+
+diffuse:
+  galdiff: $FERMI_DIFFUSE_DIR/gll_iem_v07.fits
+  isodiff: iso_P8R3_SOURCE_V3_v1.txt
+
+analysis:
+  optimizer: NEWMINUIT
+  free_radius: 3.0            # deg: free normalisations of sources within this radius of the target
+  delete_below_ts: 9          # prune weak catalog sources before the final fit (as in Tutorial 3)
+  find_sources: false         # run gta.find_sources (slow); useful for one or two example sources
+  curvature_ts_threshold: 4.0 # prefer LogParabola over PowerLaw above this TS_curv (4FGL convention)
+
+lightcurve:
+  bin_days: 30                # 30 = monthly; 7 = weekly (much slower)
+  free_radius: 3.0
+  nthread: 4
+  ts_min: 4.0                 # bins below this are treated as non-detections (upper limits)
+  flare_factor: 2.0           # flare = bin flux > flare_factor x median flux

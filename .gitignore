@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+results_demo/
+demo_out/
+*.fits
+!tests/*.fits

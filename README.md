@@ -221,4 +221,4 @@ Synthetic results are intended only for **software testing**, not scientific con
 * Fermi-LAT 4FGL/4LAC catalogs
 * NASA Fermi Science Tools
 
-The workflow is adapted from the HEARG (CAM-SUST) Fermi-LAT analysis tutorials.
+
